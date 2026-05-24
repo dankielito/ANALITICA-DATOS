@@ -1,0 +1,68 @@
+/* --- Estilos de la botonera --- */
+.fuentes-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-left: 5px solid #ffd600;
+}
+
+.fuentes-label {
+    font-weight: bold;
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.fuentes-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-fuente {
+    padding: 8px 15px;
+    border: 2px solid #01833d;
+    background: transparent;
+    color: #01833d;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-fuente:hover {
+    background: #01833d;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* --- Animaciones SweetAlert2 (Solución Anti-Bloqueo) --- */
+
+.upiicsa-swal-popup {
+    /* Usamos shadow en lugar de border para evitar bloquear clics */
+    box-shadow: 0 0 0 6px #01833d !important; 
+    animation: glowChange 3s linear infinite !important;
+}
+
+.upiicsa-swal-icon.swal2-info {
+    border-color: #01833d !important;
+    color: #01833d !important;
+    animation: iconChange 3s linear infinite !important;
+}
+
+@keyframes glowChange {
+    0% { box-shadow: 0 0 0 6px #01833d; }
+    50% { box-shadow: 0 0 0 6px #ffd600; }
+    100% { box-shadow: 0 0 0 6px #01833d; }
+}
+
+@keyframes iconChange {
+    0% { border-color: #01833d; color: #01833d; }
+    50% { border-color: #ffd600; color: #ffd600; }
+    100% { border-color: #01833d; color: #01833d; }
+}

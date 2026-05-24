@@ -1,0 +1,46 @@
+/* centrosAdopcion.css */
+.modulo-centros {
+    margin-top: 30px;
+}
+
+.chart-main-container {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.canvas-wrapper {
+    position: relative;
+    height: 450px;
+    width: 100%;
+}
+
+.ranking-container {
+    margin-top: 40px;
+}
+
+.ranking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.rank-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border-top: 5px solid #01833d;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.rank-card h4 { margin: 0; color: #333; }
+.rank-card .tag { 
+    font-size: 0.8rem; 
+    color: white; 
+    background: #01833d; 
+    padding: 2px 8px; 
+    border-radius: 4px; 
+}

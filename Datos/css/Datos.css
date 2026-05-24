@@ -1,0 +1,51 @@
+/* datos.css - Estructura General */
+
+.container-datos {
+    max-width: 100%;
+    margin: 60px 0;
+    padding: 0 40px;
+    flex: 1;
+}
+
+.datos-header {
+    text-align: left;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #01833d;
+    padding-bottom: 20px;
+}
+
+.componente-pro-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 100%;
+}
+
+.columna-izquierda {
+    flex: 0 0 65%;
+    max-width: 65%;
+}
+
+.columna-derecha {
+    flex: 0 0 30%;
+    max-width: 30%;
+    position: sticky;
+    top: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 1000px) {
+    .componente-pro-wrapper {
+        flex-direction: column;
+    }
+    .columna-izquierda, .columna-derecha {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .columna-derecha {
+        position: static;
+        order: -1; /* Pone el carrusel arriba en móviles */
+    }
+}

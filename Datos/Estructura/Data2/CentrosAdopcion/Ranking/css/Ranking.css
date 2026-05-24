@@ -1,0 +1,91 @@
+/* Ranking.css */
+
+/* --- TOP 3 NACIONAL CON BRILLO --- */
+.nacional-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.rank-card-nacional {
+    background: #8a2e4f;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    border: 2px solid #ffd600; /* Contorno Amarillo */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de Brillo Amarillo (Shine) */
+.shine-effect {
+    box-shadow: 0 0 15px rgba(255, 214, 0, 0.4);
+    overflow: hidden;
+}
+
+.rank-card-nacional:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 214, 0, 0.7);
+}
+
+.rank-number {
+    background: #ffd600;
+    color: #000;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.info-detallada p {
+    font-size: 0.9rem;
+    margin: 8px 0;
+    line-height: 1.4;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+    padding-bottom: 5px;
+}
+
+/* --- GRID DE LOS 32 ESTADOS --- */
+.estados-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 20px;
+}
+
+.estado-card {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #01833d;
+}
+
+.estado-card h5 {
+    color: #01833d;
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.top3-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.top3-lista li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Responsivo */
+@media (max-width: 1000px) {
+    .nacional-grid, .estados-grid {
+        grid-template-columns: 1fr;
+    }
+}

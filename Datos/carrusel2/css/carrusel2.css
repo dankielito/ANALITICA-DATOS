@@ -1,0 +1,75 @@
+/* =======================================================
+   carrusel2.css - Estilo para el Componente 3 (Impacto)
+   ======================================================= */
+
+.carrusel2-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.carrusel2-slide {
+    width: 100%;
+    /* Proporción 3:4 ideal para fotos de impacto/adopción */
+    aspect-ratio: 900 / 1200; 
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #f0f0f0; /* Fondo base mientras carga la imagen */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.carrusel2-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Llena el contenedor para mayor impacto visual */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Ocultas por defecto */
+    transition: opacity 0.8s ease-in-out; /* Velocidad del fundido */
+    
+    /* Efecto Pro: Desvanecimiento suave en los bordes */
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+}
+
+/* Clase que activa la visibilidad controlada por JS */
+.carrusel2-slide img.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* --- Indicadores de Navegación (Dots/Píldoras) --- */
+.carrusel2-dots {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.carrusel2-dots .dot {
+    cursor: pointer;
+    height: 10px;
+    width: 20px; /* Forma de píldora */
+    background-color: #ccc;
+    border-radius: 10px;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado activo con el color Guinda del Componente 3 */
+.carrusel2-dots .dot.active {
+    background-color: #8a2e4f; /* Color Guinda IPN */
+    width: 45px; /* Se expande cuando está activo */
+    box-shadow: 0 0 8px rgba(138, 46, 79, 0.4);
+}
+
+/* --- Ajuste Responsivo --- */
+@media (max-width: 1000px) {
+    .carrusel2-slide {
+        aspect-ratio: 16 / 9; /* En móviles se vuelve más horizontal */
+    }
+}
