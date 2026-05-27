@@ -18,7 +18,7 @@
         <main class="main-content">
             <section id="mapa-interactivo" class="dashboard-section"><?php include 'Mapa/Mapa.php'; ?></section>
             <section id="modulo-prediccion" class="dashboard-section"><?php include 'RegresionLineal/Predictor.php'; ?></section>
-            <section id="modulo-adopcion" class="dashboard-section"><?php include 'RegresionLogistica/Adopcion.php'; ?></section>
+            <section id="modulo-adopcion" class="dashboard-section"><?php include 'RegresionLogistica/VistaAdopcion.php'; ?></section>
             <section id="modulo-reportes" class="dashboard-section"><?php include 'ETL/Reportes.php'; ?></section>
         </main>
     </div>

@@ -3,9 +3,9 @@
     <p>Analiza el histórico mensual y proyecta escenarios futuros de abandono.</p>
 </div>
 
-<div style="display: flex; gap: 20px; flex-wrap: wrap;">
+<div style="display: flex; gap: 20px; flex-wrap: wrap; width: 100%; box-sizing: border-box; overflow-x: hidden;">
     
-    <div style="flex: 3; min-width: 0; width: 100%; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); overflow: hidden;">
+    <div style="flex: 1 1 0%; min-width: 0; max-width: 100%; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); overflow: hidden; box-sizing: border-box;">
         
         <p style="font-size: 0.9em; color: #555; font-style: italic; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
             * Nuestro modelo de proyección predictiva se basa en esta información recopilada de los últimos 5 años.
@@ -67,18 +67,18 @@
             </div>
         </div>
 
-        <div id="contenedor-scroll" style="width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 10px; position: relative;">
+        <div id="contenedor-scroll" style="width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 10px; position: relative; box-sizing: border-box;">
             <div id="contenedor-canvas" style="height: 400px; width: 100%; position: relative;">
                 <canvas id="chartPredictivo"></canvas>
             </div>
         </div>
         
-        <div id="contenedor-explicacion" style="display: none; height: 400px; width: 100%; overflow-y: auto; padding: 20px; background: #fafafa; border: 1px solid #ddd; border-radius: 8px; color: #333;">
-            </div>
+        <div id="contenedor-explicacion" style="display: none; height: 400px; width: 100%; overflow-y: auto; padding: 20px; background: #fafafa; border: 1px solid #ddd; border-radius: 8px; color: #333; box-sizing: border-box;">
+        </div>
         
     </div>
 
-    <div style="flex: 1; min-width: 300px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); height: fit-content;">
+    <div style="flex: 1 1 300px; max-width: 400px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); height: fit-content; box-sizing: border-box;">
         <h4 style="color: #01833d; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0;">Proyección Predictiva</h4>
         
         <div style="margin-top: 15px;">
@@ -91,8 +91,8 @@
 
             <label style="display:block; margin-bottom:8px; font-weight:bold;">Resolución:</label>
             <div style="margin-bottom:15px; background: #f9f9f9; padding: 10px; border-radius: 6px; display: flex; gap: 15px;">
-                <label><input type="radio" name="pred-resolucion" value="mensual" checked> Mensual (Mes a mes)</label>
-                <label><input type="radio" name="pred-resolucion" value="anual"> Anual (Total)</label>
+                <label><input type="radio" name="pred-resolucion" value="mensual" checked> Mensual</label>
+                <label><input type="radio" name="pred-resolucion" value="anual"> Anual</label>
             </div>
 
             <label style="display:block; margin-bottom:8px; font-weight:bold;">Años a proyectar:</label>

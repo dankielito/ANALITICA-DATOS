@@ -33,7 +33,6 @@ function cargarHistorico() {
             let color = (fuente === 'Perros') ? '#2980b9' : ((fuente === 'Gatos') ? '#d35400' : '#27ae60');
 
             $('#contenedor-scroll').show();
-            $('#contenedor-canvas').css('width', '100%');
             
             const datasetsFormat = [{
                 label: titulo,
@@ -108,19 +107,11 @@ function cambiarVistaPrediccion() {
         $('#contenedor-explicacion').hide();
         $('#contenedor-scroll').fadeIn();
 
-        let numLabels = datosPrediccionActual.labels.length;
-        if (numLabels > 15) {
-            $('#contenedor-canvas').css('width', (numLabels * 35) + 'px');
-        } else {
-            $('#contenedor-canvas').css('width', '100%');
-        }
-
         let datasetsFormat = [];
         const esDispersion = (vista === 'scatter');
         
         datosPrediccionActual.datasets.forEach(ds => {
             datasetsFormat.push({
-                // Si es dispersión, usamos 'line' con la línea oculta para conservar el eje categórico intacto
                 type: esDispersion ? 'line' : 'bar',
                 label: ds.label,
                 data: ds.data,
@@ -128,9 +119,9 @@ function cambiarVistaPrediccion() {
                 borderColor: ds.color,
                 borderWidth: esDispersion ? 0 : 2,
                 borderRadius: 4,
-                pointRadius: esDispersion ? 6 : 0, // Tamaño visible para los puntos
+                pointRadius: esDispersion ? 6 : 0, 
                 pointHoverRadius: 8,
-                showLine: !esDispersion, // Desactiva la línea si es vista de dispersión
+                showLine: !esDispersion, 
                 fill: false
             });
         });
@@ -147,9 +138,28 @@ function volverAlHistorico() {
     cargarHistorico(); 
 }
 
+// ================= RENDERIZADO MAESTRO =================
 function renderizarGenerico(labels, datasets, tipoPrincipal) {
+    // 1. Destruir la instancia en memoria
+    if (miGrafico) { 
+        miGrafico.destroy(); 
+    }
+
+    // 2. LÓGICA AGRESIVA: Calculamos el ancho exacto requerido
+    let numLabels = labels.length;
+    if (numLabels > 12) { // Si hay más de un año (12 meses), expandimos internamente
+        let anchoRequerido = numLabels * 40; // 40px por barra garantiza espacio suficiente
+        $('#contenedor-canvas').css('width', anchoRequerido + 'px');
+    } else {
+        $('#contenedor-canvas').css('width', '100%'); // Default para 1 año
+    }
+
+    // 3. LÓGICA AGRESIVA: Destruimos físicamente el canvas del HTML y lo volvemos a inyectar.
+    // Esto borra los estilos inline residuales de Chart.js que rompen el Flexbox del padre.
+    $('#contenedor-canvas').empty().append('<canvas id="chartPredictivo"></canvas>');
+
+    // 4. Renderizamos sobre el lienzo totalmente limpio
     const ctx = document.getElementById('chartPredictivo').getContext('2d');
-    if (miGrafico) { miGrafico.destroy(); }
     miGrafico = new Chart(ctx, {
         type: tipoPrincipal,
         data: { labels: labels, datasets: datasets },
@@ -159,7 +169,7 @@ function renderizarGenerico(labels, datasets, tipoPrincipal) {
             animation: { duration: 800 },
             scales: { 
                 x: {
-                    type: 'category' // Forzamos el comportamiento de categorías para evitar desborde de cuadrantes
+                    type: 'category' 
                 },
                 y: { 
                     beginAtZero: true 
